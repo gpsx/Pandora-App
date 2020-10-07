@@ -17,6 +17,6 @@
         android:title="@string/nav_chat_text" />
     <item
         android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_user_profile"
+        android:icon="@drawable/ic_user_1"
         android:title="@string/nav_settings_text" />
 </menu>
