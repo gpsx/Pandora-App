@@ -2,4 +2,8 @@
     <string name="app_name">Project Pandora</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_home_text">Home</string>
+    <string name="nav_chat_text">Chat</string>
+    <string name="nav_services_text">Serviços</string>
+    <string name="nav_settings_text">Perfil</string>
 </resources>

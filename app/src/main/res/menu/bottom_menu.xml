@@ -5,18 +5,18 @@
     <item
         android:id="@+id/nav_home"
         android:checked="true"
-        android:icon="@drawable/ic_logo"
-        android:title="@string/app_name" />
+        android:icon="@drawable/ic_house_outline"
+        android:title="@string/nav_home_text" />
     <item
         android:id="@+id/nav_services"
-        android:icon="@drawable/ic_logo"
-        android:title="@string/app_name" />
+        android:icon="@drawable/ic_suitcase"
+        android:title="@string/nav_services_text" />
     <item
         android:id="@+id/nav_chat"
-        android:icon="@drawable/ic_logo"
-        android:title="@string/app_name" />
+        android:icon="@drawable/ic_chat"
+        android:title="@string/nav_chat_text" />
     <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/ic_logo"
-        android:title="@string/app_name" />
+        android:title="@string/nav_settings_text" />
 </menu>
