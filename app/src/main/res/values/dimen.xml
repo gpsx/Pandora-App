@@ -5,4 +5,9 @@
     <dimen name="bigMargin">32dp</dimen>
     <dimen name="titleSize">42sp</dimen>
     <dimen name="textSize">16sp</dimen>
+    <dimen name="cardTitle">24sp</dimen>
+    <dimen name="iconSize">100dp</dimen>
+    <dimen name="starSize">24dp</dimen>
+    <dimen name="circleSize">6dp</dimen>
+    <dimen name="stripeViewSize">3dp</dimen>
 </resources>

@@ -7,4 +7,7 @@
     <color name="Secondary">#328CC1</color>
     <color name="Background">#F1F1F1</color>
     <color name="textColor">#080808</color>
+    <color name="LigthGray">#F1F1F1</color>
+    <color name="Yellow">#FFD700</color>
+    <color name="DarkGray">#696969</color>
 </resources>
