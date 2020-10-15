@@ -50,6 +50,7 @@
         android:layout_marginTop="@dimen/bigMargin"
         android:textSize="24sp"
         android:fontFamily="@font/roboto_light"
+        android:textColor="@color/colorPrimaryDark"
         android:hint="Email..."/>
 
     <EditText
@@ -62,6 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/enterButton"
         android:layout_marginHorizontal="@dimen/bigMargin"
         android:layout_marginBottom="@dimen/defaultMargin"
+        android:textColor="@color/colorPrimaryDark"
         android:hint="Senha..."/>
 
     <Button
@@ -77,6 +79,8 @@
         android:text="Entrar"
         android:textSize="@dimen/textSize"
         android:fontFamily="@font/roboto_bold"
-        android:textColor="@color/Background"/>
+        android:textColor="@color/Background"
+        android:onClick="login"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
