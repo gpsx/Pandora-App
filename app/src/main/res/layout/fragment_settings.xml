@@ -10,17 +10,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        app:itemIconTint="@color/Primary"
-        app:itemTextColor="@color/Primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu" />
-
-
     <View
         android:id="@+id/background_profile"
         android:layout_width="357dp"

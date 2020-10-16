@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corner"
     android:padding="@dimen/smallMargin">
 
     <ImageView
@@ -60,8 +61,8 @@
         android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/defaultMargin"
         android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
         android:fontFamily="@font/roboto_black"
         android:textColor="@color/Yellow"
         android:textSize="@dimen/textSize"
