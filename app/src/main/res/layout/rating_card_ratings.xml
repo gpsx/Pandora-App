@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corner"
+    android:padding="@dimen/smallMargin">
+
+    <ImageView
+        android:id="@+id/image_service"
+        android:layout_width="@dimen/iconSize"
+        android:layout_height="@dimen/iconSize"
+        android:src="@drawable/ic_house_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/strip"
+        android:layout_width="@dimen/stripeViewSize"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/smallMargin"
+        android:background="@color/Primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_service"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rating_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/defaultMargin"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintStart_toEndOf="@id/strip"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Avaliação Boa" />
+
+    <TextView
+        android:id="@+id/circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:textColor="@color/DarkGray"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintStart_toEndOf="@id/rating_title"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="·" />
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="@dimen/LittleStarSize"
+        android:layout_height="@dimen/LittleStarSize"
+        android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:src="@drawable/ic_star_"
+        app:layout_constraintStart_toEndOf="@id/circle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:fontFamily="@font/roboto_black"
+        android:textColor="@color/Yellow"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintStart_toEndOf="@id/star"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2,9" />
+
+    <TextView
+        android:id="@+id/avaliation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/defaultMargin"
+        android:textColor="@color/DarkGray"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintStart_toEndOf="@+id/strip"
+        app:layout_constraintTop_toBottomOf="@id/rating_title"
+        tools:text="Esta é uma avaliação muito boa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
