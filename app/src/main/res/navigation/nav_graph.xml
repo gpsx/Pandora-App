@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/nav_services"
         android:name="x.pandoraapp.views.ServicesFragment"
-        android:label="Home"
+        android:label="Serviços"
         tools:layout="@layout/fragment_services" />
 
     <fragment
         android:id="@+id/nav_chat"
         android:name="x.pandoraapp.views.ChatFragment"
-        android:label="Home"
+        android:label="Chat"
         tools:layout="@layout/fragment_chat" />
 
     <fragment
         android:id="@+id/nav_settings"
         android:name="x.pandoraapp.views.SettingsFragment"
-        android:label="Home"
+        android:label="Perfil"
         tools:layout="@layout/fragment_settings" />
 
 </navigation>
