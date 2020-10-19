@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.service_card_home.view.*
 import x.pandoraapp.R
 import x.pandoraapp.models.ServiceHome
@@ -29,7 +28,7 @@ class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is HomeViewHolder -> {
-                holder.bind(items.get(position))
+                holder.bind(items[position])
             }
         }
     }
@@ -43,19 +42,19 @@ class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
 
-        val serviceName: TextView = itemView.service_name
-        val rating: TextView = itemView.rating
-        val distancy: TextView = itemView.distancy
-        val imageService: ImageView = itemView.image_service
+        private val serviceName: TextView = itemView.service_name
+        private val rating: TextView = itemView.rating
+        private val distance: TextView = itemView.distancy
+        private val imageService: ImageView = itemView.image_service
 
         fun bind(serviceHome: ServiceHome) {
-            serviceName.setText(serviceHome.title)
-            rating.setText(serviceHome.rate.toString())
-            distancy.setText(serviceHome.distance)
+            serviceName.text = serviceHome.title
+            rating.text = serviceHome.rate.toString()
+            distance.text = serviceHome.distance
 
-            Glide.with(itemView.context)
-                .load(serviceHome.image)
-                .into(imageService)
+//            Glide.with(itemView.context)
+//                .load(serviceHome.image)
+//                .into(imageService)
         }
 
     }

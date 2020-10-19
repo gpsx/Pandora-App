@@ -20,12 +20,14 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        initRecyclerView();
-        addDataSet();
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+        addDataSet()
     }
 
     private fun addDataSet() {
@@ -36,7 +38,7 @@ class HomeFragment : Fragment() {
 
     private fun initRecyclerView() {
         recycler_view_home.apply {
-            //layoutManager = LinearLayoutManager(this@HomeFragment)
+            layoutManager = LinearLayoutManager(requireContext())
             homeAdapter = HomeRecyclerAdapter()
             adapter = homeAdapter
             val topSpacing = TopSpacingItemDecorations(12)
