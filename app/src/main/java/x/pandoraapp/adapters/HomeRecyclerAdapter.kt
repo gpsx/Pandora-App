@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
+import coil.api.load
 import kotlinx.android.synthetic.main.service_card_home.view.*
 import x.pandoraapp.R
 import x.pandoraapp.models.ServiceHome
@@ -51,10 +53,8 @@ class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             serviceName.text = serviceHome.title
             rating.text = serviceHome.rate.toString()
             distance.text = serviceHome.distance
+            imageService.load(serviceHome.image)
 
-//            Glide.with(itemView.context)
-//                .load(serviceHome.image)
-//                .into(imageService)
         }
 
     }
