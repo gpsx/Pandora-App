@@ -6,4 +6,12 @@
     <string name="nav_chat_text">Chat</string>
     <string name="nav_services_text">Serviços</string>
     <string name="nav_settings_text">Perfil</string>
+
+    <string name="tx_avaliation">Avaliações</string>
+    <string name="btn_contratar">Contratar</string>
+
+    <!-- Settings -->
+    <string name ="tx_alterar_email">Alterar E-mail</string>
+    <string name ="tx_alterar_senha">Alterar Senha</string>
+
 </resources>

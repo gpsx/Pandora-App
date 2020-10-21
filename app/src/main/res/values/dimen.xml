@@ -11,4 +11,15 @@
     <dimen name="LittleStarSize">20dp</dimen>
     <dimen name="circleSize">6dp</dimen>
     <dimen name="stripeViewSize">3dp</dimen>
+
+    <!-- Fragments Settings -->
+    <dimen name="viewWidthProfile">358dp</dimen>
+    <dimen name="viewHeightProfile">350dp</dimen>
+    <dimen name="viewHeightProfileSmall">80dp</dimen>
+
+    <!-- Service Details  -->
+    <dimen name="stripTop">70dp</dimen>
+    <dimen name="arrowLeft">36sp</dimen>
+    <dimen name="serviceImage">200dp</dimen>
+
 </resources>
