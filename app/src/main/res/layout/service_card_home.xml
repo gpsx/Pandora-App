@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/image_service"
-        android:layout_width="@dimen/iconSize"
-        android:layout_height="@dimen/iconSize"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:src="@drawable/ic_house_outline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +20,7 @@
         android:layout_width="@dimen/stripeViewSize"
         android:layout_height="0dp"
         android:layout_margin="@dimen/smallMargin"
-        android:background="@color/Primary"
+        android:background="@color/Background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_service"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/defaultMargin"
-        android:textSize="@dimen/cardTitle"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/strip"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Serviço de Chaveiro" />

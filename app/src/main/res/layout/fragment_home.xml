@@ -7,12 +7,57 @@
     android:background="#F1F1F1"
     tools:context=".views.HomeFragment">
 
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stripTop"
+        android:background="@color/White"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_filter"
+        android:layout_width="@dimen/filterSize"
+        android:layout_height="@dimen/filterSize"
+        android:layout_margin="@dimen/defaultMargin"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/view_top"
+        app:layout_constraintEnd_toStartOf="@id/et_search"
+        app:layout_constraintTop_toTopOf="@id/view_top" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:textSize="@dimen/textSize"
+        app:layout_constraintBottom_toBottomOf="@id/view_top"
+        app:layout_constraintEnd_toEndOf="@id/view_top"
+        app:layout_constraintStart_toStartOf="@id/view_top"
+        app:layout_constraintTop_toTopOf="@id/view_top" />
+
+    <ImageView
+        android:layout_width="@dimen/filterSize"
+        android:layout_height="@dimen/filterSize"
+        android:layout_margin="@dimen/defaultMargin"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/view_top"
+        app:layout_constraintStart_toEndOf="@id/et_search"
+        app:layout_constraintTop_toTopOf="@id/view_top" />
+
+    <View
+        android:id="@+id/blue_strip"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/Primary"
+        app:layout_constraintTop_toBottomOf="@id/view_top" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/smallMargin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top"
         tools:itemCount="3"
         tools:listitem="@layout/service_card_home" />
 

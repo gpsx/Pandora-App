@@ -22,4 +22,7 @@
     <dimen name="arrowLeft">36sp</dimen>
     <dimen name="serviceImage">200dp</dimen>
 
+    <!-- Menu Home -->
+    <dimen name="filterSize">30dp</dimen>
+
 </resources>
