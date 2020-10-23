@@ -5,16 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import coil.Coil
 import coil.api.load
 import kotlinx.android.synthetic.main.service_card_home.view.*
 import x.pandoraapp.R
-import x.pandoraapp.models.ServiceHome
+import x.pandoraapp.models.Service
 
 class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var items: List<ServiceHome> = ArrayList()
+    private var items: List<Service> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return HomeViewHolder(
@@ -35,8 +35,9 @@ class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    fun submitList(servicesList: List<ServiceHome>) {
+    fun submitList(servicesList: List<Service>) {
         items = servicesList
+        notifyDataSetChanged()
     }
 
     //ViewHolder
@@ -49,12 +50,11 @@ class HomeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val distance: TextView = itemView.distancy
         private val imageService: ImageView = itemView.image_service
 
-        fun bind(serviceHome: ServiceHome) {
+        fun bind(serviceHome: Service) {
             serviceName.text = serviceHome.title
-            rating.text = serviceHome.rate.toString()
-            distance.text = serviceHome.distance
+            rating.text = "3,0"
+            distance.text = "300"
             imageService.load(serviceHome.image)
-
         }
 
     }
