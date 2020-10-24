@@ -47,7 +47,7 @@
         android:layout_marginHorizontal="@dimen/bigMargin"
         android:layout_marginTop="@dimen/bigMargin"
         android:fontFamily="@font/roboto_light"
-        android:hint="Email..."
+        android:hint="@string/emailPlaceholder"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/passwordEditText"
@@ -60,11 +60,12 @@
         android:layout_marginHorizontal="@dimen/bigMargin"
         android:layout_marginBottom="@dimen/defaultMargin"
         android:fontFamily="@font/roboto_light"
-        android:hint="Senha..."
+        android:hint="@string/passwordPlaceholder"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/enterButton"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/enterButton"
@@ -73,7 +74,7 @@
         android:layout_marginHorizontal="@dimen/bigMargin"
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/roboto_bold"
-        android:text="Entrar"
+        android:text="@string/enterButtonText"
         android:textColor="@color/Background"
         android:textSize="@dimen/textSize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,5 +82,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
 
+    <ProgressBar
+        android:id="@+id/loadingProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/enterButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/defaultMargin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
