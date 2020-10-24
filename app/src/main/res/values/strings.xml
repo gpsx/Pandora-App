@@ -13,5 +13,8 @@
     <!-- Settings -->
     <string name ="tx_alterar_email">Alterar E-mail</string>
     <string name ="tx_alterar_senha">Alterar Senha</string>
+    <string name="emailPlaceholder">Email...</string>
+    <string name="passwordPlaceholder">Senha...</string>
+    <string name="enterButtonText">Entrar</string>
 
 </resources>
