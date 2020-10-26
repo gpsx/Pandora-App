@@ -1,12 +1,12 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="colorPrimary">@color/Primary</item>
-        <item name="colorPrimaryDark">@color/Background</item>
-        <item name="colorAccent">@color/Secondary</item>
-        <item name="android:textColor">@color/textColor</item>
-    </style>
+    <!-- Customize your theme here. -->
+    <item name="android:fontFamily">@font/roboto_regular</item>
+    <item name="colorPrimary">@color/Primary</item>
+    <item name="colorPrimaryDark">@color/Background</item>
+    <item name="colorAccent">@color/Secondary</item>
+    <item name="android:textColor">@color/textColor</item>
+</style>
 
 </resources>
