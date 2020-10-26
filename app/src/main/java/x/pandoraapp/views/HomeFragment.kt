@@ -1,18 +1,16 @@
 package x.pandoraapp.views
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.connection_error.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import x.pandoraapp.R
 import x.pandoraapp.adapters.HomeRecyclerAdapter
 import x.pandoraapp.controllers.ServiceController
-import x.pandoraapp.models.CEP
 import x.pandoraapp.models.Service
 import x.pandoraapp.utils.TopSpacingItemDecorations
 import x.pandoraapp.utils.observe
@@ -31,7 +29,7 @@ class HomeFragment : Fragment() {
 
     private fun bindObservers() = with(serviceController) {
         observe(error) {
-            Log.d("Error",it)
+            connectionError()
         }
         observe(data) {
             addDataSet(it)
@@ -39,14 +37,25 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun connectionError() {
+        connection_error.visibility = View.VISIBLE
+        loadingProgress.visibility = View.GONE
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         serviceController.getInfo()
         bindObservers()
+        tryAgainButton.setOnClickListener {
+            serviceController.getInfo()
+            connection_error.visibility = View.GONE
+            loadingProgress.visibility = View.VISIBLE
+        }
     }
 
     private fun addDataSet(data: List<Service>) {
+        loadingProgress.visibility = View.VISIBLE
         homeAdapter.submitList(data)
     }
 

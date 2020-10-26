@@ -19,27 +19,31 @@
         android:layout_height="@dimen/filterSize"
         android:layout_margin="@dimen/defaultMargin"
         android:src="@drawable/ic_filter"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/view_top"
-        app:layout_constraintEnd_toStartOf="@id/et_search"
         app:layout_constraintTop_toTopOf="@id/view_top" />
 
     <EditText
-        android:id="@+id/et_search"
-        android:layout_width="240dp"
-        android:layout_height="48dp"
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/textSize"
+        android:layout_marginHorizontal="@dimen/defaultMargin"
         app:layout_constraintBottom_toBottomOf="@id/view_top"
-        app:layout_constraintEnd_toEndOf="@id/view_top"
-        app:layout_constraintStart_toStartOf="@id/view_top"
-        app:layout_constraintTop_toTopOf="@id/view_top" />
+        app:layout_constraintStart_toEndOf="@id/icon_filter"
+        app:layout_constraintEnd_toStartOf="@id/searchButton"
+        app:layout_constraintTop_toTopOf="@id/view_top"
+        android:autofillHints="@string/editTextplaceholder"
+        android:inputType="text" />
 
     <ImageView
+        android:id="@+id/searchButton"
         android:layout_width="@dimen/filterSize"
         android:layout_height="@dimen/filterSize"
         android:layout_margin="@dimen/defaultMargin"
         android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/view_top"
-        app:layout_constraintStart_toEndOf="@id/et_search"
         app:layout_constraintTop_toTopOf="@id/view_top" />
 
     <View
@@ -50,21 +54,47 @@
         app:layout_constraintTop_toBottomOf="@id/view_top" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/featuredTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/featuredTitle"
+        android:layout_margin="@dimen/defaultMargin"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="@dimen/textSize"
+        android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/blue_strip"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/smallMargin"
+        android:layout_margin="@dimen/smallMargin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_top"
+        app:layout_constraintTop_toBottomOf="@id/featuredTitle"
         tools:itemCount="3"
         tools:listitem="@layout/service_card_home" />
+
+    <include
+        layout="@layout/connection_error"
+        android:id="@+id/connection_error"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/blue_strip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/loadingProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintTop_toTopOf="@id/blue_strip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/defaultMargin"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
