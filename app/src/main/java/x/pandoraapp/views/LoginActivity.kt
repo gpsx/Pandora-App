@@ -39,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun bindObservers() = with(controller) {
         observe(error) {
+            loadingProgress.visibility = View.GONE
             makeToast(it)
         }
         observe(data) {

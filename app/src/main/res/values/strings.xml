@@ -16,5 +16,12 @@
     <string name="emailPlaceholder">Email...</string>
     <string name="passwordPlaceholder">Senha...</string>
     <string name="enterButtonText">Entrar</string>
+    <string name="logoDescription">logo</string>
+    <string name="errorTitle">Erro de conexão!</string>
+    <string name="errorText">Parece que ocorreu um erro ao tentar se conectar com o nosso serviço, verifique a conexão com a internet e tente novamente!</string>
+    <string name="tryAgain">Tentar Novamente</string>
+    <string name="featuredTitle">Serviços Populares</string>
+    <string name="editTextplaceholder">Pesquisar serviço...</string>
+    <string name="comingSoonTitle">Funcionalidade em construção!</string>
 
 </resources>
