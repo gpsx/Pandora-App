@@ -5,7 +5,6 @@
     <dimen name="bigMargin">32dp</dimen>
     <dimen name="titleSize">42sp</dimen>
     <dimen name="textSize">16sp</dimen>
-    <dimen name="cardTitle">24sp</dimen>
     <dimen name="iconSize">100dp</dimen>
     <dimen name="starSize">24dp</dimen>
     <dimen name="LittleStarSize">20dp</dimen>
@@ -24,5 +23,9 @@
 
     <!-- Menu Home -->
     <dimen name="filterSize">30dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="imageSize">90dp</dimen>
+    <dimen name="cardTitle">20sp</dimen>
 
 </resources>
