@@ -8,7 +8,7 @@
     android:padding="@dimen/smallMargin">
 
     <ImageView
-        android:id="@+id/image_service"
+        android:id="@+id/image_solicitation"
         android:layout_width="@dimen/imageSize"
         android:layout_height="@dimen/imageSize"
         android:src="@drawable/ic_house_outline"
@@ -22,11 +22,11 @@
         android:layout_margin="@dimen/smallMargin"
         android:background="@color/Background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_service"
+        app:layout_constraintStart_toEndOf="@id/image_solicitation"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/service_title"
+        android:id="@+id/solicitation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/defaultMargin"
@@ -44,7 +44,7 @@
         android:textColor="@color/DarkGray"
         android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@+id/strip"
-        app:layout_constraintTop_toBottomOf="@id/service_title"
+        app:layout_constraintTop_toBottomOf="@id/solicitation_title"
         tools:text="Status: " />
 
     <TextView
@@ -56,7 +56,7 @@
         android:textColor="@color/DarkGray"
         android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@+id/text_status"
-        app:layout_constraintTop_toBottomOf="@id/service_title"
+        app:layout_constraintTop_toBottomOf="@id/solicitation_title"
         tools:text="Em andamento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

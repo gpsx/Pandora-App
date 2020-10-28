@@ -23,6 +23,7 @@
 
     <!-- Menu Home -->
     <dimen name="filterSize">30dp</dimen>
+    <dimen name="stripHeight">2dp</dimen>
 
     <!-- Cards -->
     <dimen name="imageSize">90dp</dimen>

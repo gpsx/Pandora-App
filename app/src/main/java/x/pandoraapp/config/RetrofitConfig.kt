@@ -18,7 +18,7 @@ class RetrofitConfig {
     private fun retrofitConfig() {
         retrofit = Retrofit.Builder()
             .client(CustomHttpClient().getOkHttpClient())
-            .baseUrl("http://ec2-3-87-26-54.compute-1.amazonaws.com:8080/")
+            .baseUrl("ec2-3-83-163-91.compute-1.amazonaws.com:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_services"
-        android:name="x.pandoraapp.views.ServicesFragment"
+        android:name="x.pandoraapp.views.SolicitationsFragment"
         android:label="Serviços"
-        tools:layout="@layout/fragment_services" />
+        tools:layout="@layout/fragment_solicitations" />
 
     <fragment
         android:id="@+id/nav_chat"

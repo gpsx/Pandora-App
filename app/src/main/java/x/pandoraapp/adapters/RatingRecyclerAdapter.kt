@@ -47,10 +47,9 @@ class RatingRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val image: ImageView = itemView.image_service
 
         fun bind(rating: Rating) {
-            title.text = rating.title
             note.text = rating.rate.toString()
-            avaliation.text = rating.description
-            image.load(rating.image)
+            avaliation.text = rating.avaliation
+            image.load(R.drawable.ic_logo)
         }
     }
 }

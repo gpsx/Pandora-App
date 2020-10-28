@@ -23,5 +23,6 @@
     <string name="featuredTitle">Serviços Populares</string>
     <string name="editTextplaceholder">Pesquisar serviço...</string>
     <string name="comingSoonTitle">Funcionalidade em construção!</string>
+    <string name="servicesTitle">Todas as solicitações</string>
 
 </resources>
