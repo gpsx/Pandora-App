@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun addDataSet(data: List<Service>) {
-        loadingProgress.visibility = View.VISIBLE
+        loadingProgress.visibility = View.GONE
         homeAdapter.submitList(data)
     }
 

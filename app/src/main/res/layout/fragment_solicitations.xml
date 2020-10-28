@@ -51,5 +51,25 @@
         tools:itemCount="3"
         tools:listitem="@layout/solicitation_card" />
 
+    <include
+        android:id="@+id/connection_error_solicitations"
+        layout="@layout/connection_error"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blue_strip" />
+
+    <ProgressBar
+        android:id="@+id/loadingProgress_solicitations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blue_strip" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

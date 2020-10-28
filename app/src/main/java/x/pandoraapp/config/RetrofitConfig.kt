@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import x.pandoraapp.services.ExampleService
 import x.pandoraapp.services.ServiceService
+import x.pandoraapp.services.SolicitationService
 import x.pandoraapp.services.UserService
 
 class RetrofitConfig {
@@ -18,7 +19,7 @@ class RetrofitConfig {
     private fun retrofitConfig() {
         retrofit = Retrofit.Builder()
             .client(CustomHttpClient().getOkHttpClient())
-            .baseUrl("ec2-3-83-163-91.compute-1.amazonaws.com:8080/")
+            .baseUrl("https://loadbalanceback.sytes.net")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
@@ -27,6 +28,10 @@ class RetrofitConfig {
 //    fun getExampleService(): ExampleService {
 //        return this.retrofit.create(ExampleService::class.java)
 //    }
+
+    fun getSolicitationData() : SolicitationService{
+        return this.retrofit.create(SolicitationService::class.java)
+    }
 
     fun getServiceData(): ServiceService{
         return this.retrofit.create(ServiceService::class.java)
