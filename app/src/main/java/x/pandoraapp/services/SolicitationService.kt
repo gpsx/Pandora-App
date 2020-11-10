@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import x.pandoraapp.models.Solicitation
 
 interface SolicitationService {
-    @GET("/solicitacoes/buscar/7?isSolicitante=true")
+    @GET("/solicitacoes/buscar/5?isSolicitante=true")
     fun getSolicitationsById(): Single<List<Solicitation>>
 }
