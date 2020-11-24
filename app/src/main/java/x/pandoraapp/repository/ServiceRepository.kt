@@ -29,6 +29,34 @@ object ServiceRepository {
         )
     }
 
+    fun getServiceByWord(controller: ServiceController, filtro: String) {
+        disposable.add(
+            api.getServiceData()
+                .getServiceByWord(filtro)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    controller.defineServices(it)
+                }, {
+                    controller.defineErr("Deu Ruim")
+                })
+        )
+    }
+
+    fun getServiceById(controller: ServiceController, id : Int){
+        disposable.add(
+            api.getServiceData()
+                .getServiceById(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    controller.defineService(it)
+                }, {
+                    controller.defineErr("Deu Ruim")
+                })
+        )
+    }
+
 
     fun clearDisposable() {
         disposable.clear()

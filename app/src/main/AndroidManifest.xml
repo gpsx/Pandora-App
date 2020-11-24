@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".views.SplashActivity"/>
         <activity android:name=".views.LoginActivity" />
+        <activity android:name=".views.ServiceActivity" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

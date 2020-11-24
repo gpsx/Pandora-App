@@ -42,6 +42,8 @@
         android:layout_width="@dimen/filterSize"
         android:layout_height="@dimen/filterSize"
         android:layout_margin="@dimen/defaultMargin"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_search"
         app:layout_constraintBottom_toBottomOf="@id/view_top"
         app:layout_constraintEnd_toEndOf="parent"
