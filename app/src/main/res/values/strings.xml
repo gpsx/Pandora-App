@@ -11,8 +11,8 @@
     <string name="btn_contratar">Contratar</string>
 
     <!-- Settings -->
-    <string name ="tx_alterar_email">Alterar E-mail</string>
-    <string name ="tx_alterar_senha">Alterar Senha</string>
+    <string name="tx_alterar_email">Alterar E-mail</string>
+    <string name="tx_alterar_senha">Alterar Senha</string>
     <string name="emailPlaceholder">Email...</string>
     <string name="passwordPlaceholder">Senha...</string>
     <string name="enterButtonText">Entrar</string>
@@ -25,4 +25,8 @@
     <string name="comingSoonTitle">Funcionalidade em construção!</string>
     <string name="servicesTitle">Todas as solicitações</string>
 
+    <!-- Solicitações -->
+    <string name="description">Descreva sua solicitação</string>
+    <string name="status">Status:  </string>
+    <string name="toastSend">Solicitação enviada ao prestador!</string>
 </resources>

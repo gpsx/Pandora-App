@@ -11,8 +11,11 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_solicitations.*
 import x.pandoraapp.R
 import x.pandoraapp.adapters.SolicitationRecyclerAdapter
+import x.pandoraapp.constraints.USER_ID_BUNDLE
 import x.pandoraapp.controllers.SolicitationController
 import x.pandoraapp.models.Solicitation
+import x.pandoraapp.models.User
+import x.pandoraapp.repository.SharedPreferencesRepositoryImplementation
 import x.pandoraapp.utils.TopSpacingItemDecorations
 import x.pandoraapp.utils.observe
 
@@ -20,6 +23,7 @@ class SolicitationsFragment : Fragment() {
 
     private lateinit var solicitationAdapter: SolicitationRecyclerAdapter
     private val solicitationController by lazy { SolicitationController() }
+    private val pref by lazy { SharedPreferencesRepositoryImplementation<User>(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,10 +50,18 @@ class SolicitationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        solicitationController.getInfo()
+
+        var id = pref.getValue(USER_ID_BUNDLE, User::class.java)?.id
+        if (id == 0) {
+            id = 7
+        }else if(id == null){
+            id = 7
+        }
+
+        solicitationController.getInfo(id)
         bindObservers()
         tryAgainButton.setOnClickListener {
-            solicitationController.getInfo()
+            solicitationController.getInfo(id)
             connection_error_solicitations.visibility = View.GONE
             loadingProgress_solicitations.visibility = View.VISIBLE
         }

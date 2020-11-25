@@ -1,10 +1,12 @@
 package x.pandoraapp.views
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connection_error.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -17,14 +19,17 @@ import x.pandoraapp.utils.observe
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeAdapter: HomeRecyclerAdapter
     private val serviceController by lazy { ServiceController() }
+    private lateinit var source: ImageView
+    private lateinit var homeAdapter: HomeRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        source = view.findViewById(R.id.searchButton) as ImageView
+        return view
     }
 
     private fun bindObservers() = with(serviceController) {
@@ -34,7 +39,6 @@ class HomeFragment : Fragment() {
         observe(data) {
             addDataSet(it)
         }
-
     }
 
     private fun connectionError() {
@@ -52,6 +56,15 @@ class HomeFragment : Fragment() {
             connection_error.visibility = View.GONE
             loadingProgress.visibility = View.VISIBLE
         }
+
+        source.setOnClickListener {
+            val filter = searchEditText.text.toString()
+            serviceController.getServicesByWord(filter)
+            bindObservers()
+            tryAgainButton.setOnClickListener {
+                serviceController.getServicesByWord(filter)
+            }
+        }
     }
 
     private fun addDataSet(data: List<Service>) {
@@ -62,7 +75,12 @@ class HomeFragment : Fragment() {
     private fun initRecyclerView() {
         recycler_view_home.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            homeAdapter = HomeRecyclerAdapter()
+            homeAdapter = HomeRecyclerAdapter{ service ->
+                val intent = Intent(context, ServiceActivity::class.java).apply{
+                    putExtra("id", service.id)
+                }
+                startActivity(intent);
+            }
             adapter = homeAdapter
             val topSpacing = TopSpacingItemDecorations(12)
             addItemDecoration(topSpacing)
