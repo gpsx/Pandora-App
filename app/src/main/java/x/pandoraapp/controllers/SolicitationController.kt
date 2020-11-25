@@ -10,12 +10,18 @@ class SolicitationController {
 
     val data: MutableLiveData<List<Solicitation>> = MutableLiveData()
 
-    fun getInfo() = SolicitationRepository.getSolicitations(this)
+    fun getInfo(id : Int) = SolicitationRepository.getSolicitations(this, id)
 
     fun defineErr(err: String?) {
         error.value = err
     }
 
     fun defineSolicitations(solicitation: List<Solicitation>) = this.data.postValue(solicitation)
+
+    fun createSolicitationidPres(
+        idPres: Int,
+        idSol: Int?,
+        description: String
+    ) = SolicitationRepository.createSolicitation(this, idPres, idSol, description)
 
 }

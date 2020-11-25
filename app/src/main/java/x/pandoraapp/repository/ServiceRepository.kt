@@ -50,7 +50,7 @@ object ServiceRepository {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({
-                    controller.defineService(it)
+                    controller.defineService(it.first())
                 }, {
                     controller.defineErr("Deu Ruim")
                 })

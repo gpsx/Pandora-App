@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/defaultMargin"
-        android:textSize="@dimen/cardTitle"
+        android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@id/strip"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Serviço de Chaveiro" />
@@ -45,7 +45,7 @@
         android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@+id/strip"
         app:layout_constraintTop_toBottomOf="@id/solicitation_title"
-        tools:text="Status: " />
+        android:text="@string/status" />
 
     <TextView
         android:id="@+id/status"

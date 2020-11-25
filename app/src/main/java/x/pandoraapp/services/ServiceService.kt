@@ -1,6 +1,5 @@
 package x.pandoraapp.services
 
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,5 +14,5 @@ interface ServiceService {
     fun getServiceByWord(@Query("filtro") filtro: String): Single<List<Service>>
 
     @GET("/servicos/por-id/{id}")
-    fun getServiceById(@Path("id") id : Int) : Single<Service>
+    fun getServiceById(@Path("id") id : Int) : Single<List<Service>>
 }
