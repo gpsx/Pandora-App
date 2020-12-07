@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:clickable="true"
         android:id="@+id/icon_filter"
         android:layout_width="@dimen/filterSize"
         android:layout_height="@dimen/filterSize"

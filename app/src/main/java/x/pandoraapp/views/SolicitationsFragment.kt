@@ -1,10 +1,14 @@
 package x.pandoraapp.views
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RadioButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connection_error.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -16,20 +20,47 @@ import x.pandoraapp.controllers.SolicitationController
 import x.pandoraapp.models.Solicitation
 import x.pandoraapp.models.User
 import x.pandoraapp.repository.SharedPreferencesRepositoryImplementation
-import x.pandoraapp.utils.TopSpacingItemDecorations
-import x.pandoraapp.utils.observe
+import x.pandoraapp.utils.*
 
 class SolicitationsFragment : Fragment() {
 
+    private lateinit var filter: ImageView
     private lateinit var solicitationAdapter: SolicitationRecyclerAdapter
     private val solicitationController by lazy { SolicitationController() }
     private val pref by lazy { SharedPreferencesRepositoryImplementation<User>(requireContext()) }
+    private var strFilter : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_solicitations, container, false)
+        val view = inflater.inflate(R.layout.fragment_solicitations, container, false)
+        filter = view.findViewById(R.id.icon_filter) as ImageView
+        return view
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.rb_solicitado ->
+                    if (checked) {
+                        strFilter = "SOLICITADO"
+                    }
+                R.id.rb_aprovado ->
+                    if (checked) {
+                        strFilter = "APROVADO"
+                    }
+                R.id.rb_execucao ->
+                    if (checked) {
+                        strFilter = "EXECUCAO"
+                    }
+                R.id.rb_finalizado ->
+                    if (checked) {
+                        strFilter = "FINALIZADO"
+                    }
+            }
+        }
     }
 
     private fun bindObservers() = with(solicitationController) {
@@ -51,20 +82,45 @@ class SolicitationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
 
-        var id = pref.getValue(USER_ID_BUNDLE, User::class.java)?.id
-        if (id == 0) {
-            id = 7
-        }else if(id == null){
-            id = 7
+        filter.setOnClickListener {
+            startPopUp()
         }
 
-        solicitationController.getInfo(id)
+        solicitationController.getInfo(this.getUserId())
         bindObservers()
         tryAgainButton.setOnClickListener {
-            solicitationController.getInfo(id)
+            solicitationController.getInfo(this.getUserId())
             connection_error_solicitations.visibility = View.GONE
             loadingProgress_solicitations.visibility = View.VISIBLE
         }
+    }
+
+    private fun startPopUp() {
+        val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.popup_solicitations_filter, null)
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setView(view)
+
+        alertDialogBuilder.setCancelable(false)
+            .setPositiveButton(
+                "FILTRAR"
+            ) { dialogInterface: DialogInterface, i: Int ->
+                //onClick
+            }
+            .setNegativeButton(
+                "CANCELAR"
+            ) { dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.cancel()
+            }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+        val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+        theButton.setOnClickListener(
+            CustomListenerFilter(
+                alertDialog, context, strFilter, this.getUserId()
+            )
+        )
+
     }
 
 
@@ -81,6 +137,16 @@ class SolicitationsFragment : Fragment() {
             val topSpacing = TopSpacingItemDecorations(12)
             addItemDecoration(topSpacing)
         }
+    }
+
+    private fun getUserId() : Int {
+        var id = pref.getValue(USER_ID_BUNDLE, User::class.java)?.id
+        if (id == 0) {
+            id = 7
+        }else if(id == null){
+            id = 7
+        }
+        return id;
     }
 
 }

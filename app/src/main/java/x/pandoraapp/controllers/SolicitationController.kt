@@ -24,4 +24,9 @@ class SolicitationController {
         description: String
     ) = SolicitationRepository.createSolicitation(this, idPres, idSol, description)
 
+    fun getFilteredSolicitation(
+        id : Int,
+        filter : String
+    ) = SolicitationRepository.getFilteredSolicitation(this, id, filter)
+
 }

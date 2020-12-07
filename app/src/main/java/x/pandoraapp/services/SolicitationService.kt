@@ -20,4 +20,10 @@ interface SolicitationService {
         @Path("idSol") idSol: Int?,
         @Body description: RequestBody
     ) : Single<Response<Any>>
+
+    @GET("/solicitacoes/solicitante/buscar/{id}?status={status}")
+    fun getFilteredSolicitation(
+        @Path("id") id : Int,
+        @Path("status") status : String
+    ) : Single<List<Solicitation>>
 }

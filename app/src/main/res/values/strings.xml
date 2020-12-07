@@ -29,4 +29,8 @@
     <string name="description">Descreva sua solicitação</string>
     <string name="status">Status:  </string>
     <string name="toastSend">Solicitação enviada ao prestador!</string>
+    <string name="filterSolicitado">Solicitado</string>
+    <string name="filterAprovado">Aprovado</string>
+    <string name="filterExecucao">Execução</string>
+    <string name="filterFinalizado">Finalizado</string>
 </resources>

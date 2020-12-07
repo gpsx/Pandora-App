@@ -34,6 +34,20 @@ object SolicitationRepository {
         )
     }
 
+    fun getFilteredSolicitation(controller: SolicitationController, id: Int, filter: String) {
+        disposable.add(
+            api.getSolicitationData()
+                .getFilteredSolicitation(id, filter)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    controller.defineSolicitations(it)
+                }, {
+                    controller.defineErr("Erro")
+                })
+        )
+    }
+
     fun createSolicitation(
         controller: SolicitationController,
         idPres: Int,
