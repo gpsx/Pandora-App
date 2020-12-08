@@ -15,29 +15,29 @@
             android:id="@+id/rb_solicitado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/filterSolicitado"
-            android:onClick="onRadioButtonClicked"/>
+            android:clickable="true"
+            android:text="@string/filterSolicitado" />
 
         <RadioButton
             android:id="@+id/rb_aprovado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/filterAprovado"
-            android:onClick="onRadioButtonClicked" />
+            android:clickable="true"
+            android:text="@string/filterAprovado" />
 
         <RadioButton
             android:id="@+id/rb_execucao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/filterExecucao"
-            android:onClick="onRadioButtonClicked" />
+            android:clickable="true"
+            android:text="@string/filterExecucao" />
 
         <RadioButton
             android:id="@+id/rb_finalizado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/filterFinalizado"
-            android:onClick="onRadioButtonClicked"/>
+            android:clickable="true"
+            android:text="@string/filterFinalizado" />
 
     </RadioGroup>
 

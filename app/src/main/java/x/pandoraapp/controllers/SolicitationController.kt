@@ -15,7 +15,7 @@ class SolicitationController {
     fun defineErr(err: String?) {
         error.value = err
     }
-
+    
     fun defineSolicitations(solicitation: List<Solicitation>) = this.data.postValue(solicitation)
 
     fun createSolicitationidPres(

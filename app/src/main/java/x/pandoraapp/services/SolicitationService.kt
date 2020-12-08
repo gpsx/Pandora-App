@@ -4,10 +4,7 @@ import io.reactivex.Single
 import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 import x.pandoraapp.models.Solicitation
 
 interface SolicitationService {
@@ -21,9 +18,9 @@ interface SolicitationService {
         @Body description: RequestBody
     ) : Single<Response<Any>>
 
-    @GET("/solicitacoes/solicitante/buscar/{id}?status={status}")
+    @GET("/solicitacoes/solicitante/buscar/{id}")
     fun getFilteredSolicitation(
         @Path("id") id : Int,
-        @Path("status") status : String
+        @Query("status") status : String
     ) : Single<List<Solicitation>>
 }

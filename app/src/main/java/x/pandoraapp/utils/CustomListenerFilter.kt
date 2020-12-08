@@ -10,7 +10,8 @@ class CustomListenerFilter(
     private val dialog: Dialog,
     private val context: Context?,
     private val type: String,
-    private val id : Int
+    private val id : Int,
+    private val view : View
 ) : View.OnClickListener {
 
     private val solicitationController by lazy { SolicitationController() }

@@ -25,10 +25,14 @@ import x.pandoraapp.utils.*
 class SolicitationsFragment : Fragment() {
 
     private lateinit var filter: ImageView
+    private lateinit var rbSolicitado: RadioButton
+    private lateinit var rbAprovado: RadioButton
+    private lateinit var rbExecucao: RadioButton
+    private lateinit var rbFinalizado: RadioButton
     private lateinit var solicitationAdapter: SolicitationRecyclerAdapter
     private val solicitationController by lazy { SolicitationController() }
     private val pref by lazy { SharedPreferencesRepositoryImplementation<User>(requireContext()) }
-    private var strFilter : String = ""
+    private var strFilter: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -101,6 +105,16 @@ class SolicitationsFragment : Fragment() {
         val alertDialogBuilder = AlertDialog.Builder(context)
         alertDialogBuilder.setView(view)
 
+        rbSolicitado = (view.findViewById(R.id.rb_solicitado) as RadioButton?)!!
+        rbAprovado = (view.findViewById(R.id.rb_aprovado) as RadioButton?)!!
+        rbExecucao = (view.findViewById(R.id.rb_execucao) as RadioButton?)!!
+        rbFinalizado = (view.findViewById(R.id.rb_finalizado) as RadioButton?)!!
+
+        rbSolicitado.setOnClickListener { onRadioButtonClicked(rbSolicitado) }
+        rbAprovado.setOnClickListener { onRadioButtonClicked(rbAprovado) }
+        rbExecucao.setOnClickListener { onRadioButtonClicked(rbExecucao) }
+        rbFinalizado.setOnClickListener { onRadioButtonClicked(rbFinalizado) }
+
         alertDialogBuilder.setCancelable(false)
             .setPositiveButton(
                 "FILTRAR"
@@ -117,7 +131,7 @@ class SolicitationsFragment : Fragment() {
         val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
         theButton.setOnClickListener(
             CustomListenerFilter(
-                alertDialog, context, strFilter, this.getUserId()
+                alertDialog, context, strFilter, this.getUserId(), view
             )
         )
 
@@ -139,11 +153,11 @@ class SolicitationsFragment : Fragment() {
         }
     }
 
-    private fun getUserId() : Int {
+    private fun getUserId(): Int {
         var id = pref.getValue(USER_ID_BUNDLE, User::class.java)?.id
         if (id == 0) {
             id = 7
-        }else if(id == null){
+        } else if (id == null) {
             id = 7
         }
         return id;
