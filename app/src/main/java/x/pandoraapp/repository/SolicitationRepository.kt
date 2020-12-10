@@ -43,7 +43,7 @@ object SolicitationRepository {
                 .subscribe({
                     controller.defineSolicitations(it)
                 }, {
-                    controller.defineErr("Erro")
+                    controller.defineErr(it.message)
                 })
         )
     }

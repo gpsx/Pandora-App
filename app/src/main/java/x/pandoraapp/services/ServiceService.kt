@@ -15,4 +15,7 @@ interface ServiceService {
 
     @GET("/servicos/por-id/{id}")
     fun getServiceById(@Path("id") id : Int) : Single<List<Service>>
+
+    @GET("/servicos/buscar-categoria/{id}")
+    fun getServiceByCategory(@Path("id") id : Int): Single<List<Service>>
 }

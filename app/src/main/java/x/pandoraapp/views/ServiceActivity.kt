@@ -114,7 +114,7 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun addDataSet() {
         val data = DataSourceRating.createDataSet()
-//        ratingAdapter.submitList(data)
+        ratingAdapter.submitList(data)
     }
 
 }

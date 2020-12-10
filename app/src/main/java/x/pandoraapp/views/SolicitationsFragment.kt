@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connection_error.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -43,36 +44,13 @@ class SolicitationsFragment : Fragment() {
         return view
     }
 
-    fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            val checked = view.isChecked
-            when (view.getId()) {
-                R.id.rb_solicitado ->
-                    if (checked) {
-                        strFilter = "SOLICITADO"
-                    }
-                R.id.rb_aprovado ->
-                    if (checked) {
-                        strFilter = "APROVADO"
-                    }
-                R.id.rb_execucao ->
-                    if (checked) {
-                        strFilter = "EXECUCAO"
-                    }
-                R.id.rb_finalizado ->
-                    if (checked) {
-                        strFilter = "FINALIZADO"
-                    }
-            }
-        }
-    }
-
     private fun bindObservers() = with(solicitationController) {
         observe(error) {
-            connectionError()
+            Toast.makeText(context, "Nenhuma solicitação encontrada", Toast.LENGTH_SHORT).show()
         }
         observe(data) {
             addDataSet(it)
+            Toast.makeText(context, "Filtrado", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -110,10 +88,10 @@ class SolicitationsFragment : Fragment() {
         rbExecucao = (view.findViewById(R.id.rb_execucao) as RadioButton?)!!
         rbFinalizado = (view.findViewById(R.id.rb_finalizado) as RadioButton?)!!
 
-        rbSolicitado.setOnClickListener { onRadioButtonClicked(rbSolicitado) }
-        rbAprovado.setOnClickListener { onRadioButtonClicked(rbAprovado) }
-        rbExecucao.setOnClickListener { onRadioButtonClicked(rbExecucao) }
-        rbFinalizado.setOnClickListener { onRadioButtonClicked(rbFinalizado) }
+        rbSolicitado.setOnClickListener { strFilter = "solicitado" }
+        rbAprovado.setOnClickListener { strFilter = "aprovado" }
+        rbExecucao.setOnClickListener { strFilter = "execucao" }
+        rbFinalizado.setOnClickListener { strFilter = "finalizado" }
 
         alertDialogBuilder.setCancelable(false)
             .setPositiveButton(
@@ -129,11 +107,14 @@ class SolicitationsFragment : Fragment() {
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
         val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-        theButton.setOnClickListener(
-            CustomListenerFilter(
-                alertDialog, context, strFilter, this.getUserId(), view
+
+        theButton.setOnClickListener{
+            solicitationController.getFilteredSolicitation(
+                this.getUserId(), strFilter
             )
-        )
+            bindObservers()
+            alertDialog.dismiss()
+        }
 
     }
 

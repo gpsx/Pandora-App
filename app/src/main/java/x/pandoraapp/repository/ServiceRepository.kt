@@ -43,7 +43,7 @@ object ServiceRepository {
         )
     }
 
-    fun getServiceById(controller: ServiceController, id : Int){
+    fun getServiceById(controller: ServiceController, id: Int) {
         disposable.add(
             api.getServiceData()
                 .getServiceById(id)
@@ -60,6 +60,20 @@ object ServiceRepository {
 
     fun clearDisposable() {
         disposable.clear()
+    }
+
+    fun getServiceByCategory(controller: ServiceController, category: Int) {
+        disposable.add(
+            api.getServiceData()
+                .getServiceByCategory(category)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    controller.defineServices(it)
+                }, {
+                    controller.defineErr("Deu Ruim")
+                })
+        )
     }
 
 }

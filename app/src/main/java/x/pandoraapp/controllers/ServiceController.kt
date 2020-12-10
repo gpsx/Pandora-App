@@ -17,6 +17,8 @@ class ServiceController {
 
     fun getServicesByWord(filtro: String) = ServiceRepository.getServiceByWord(this, filtro)
 
+    fun getServicesByCategory(category : Int) = ServiceRepository.getServiceByCategory(this, category)
+
     fun getServiceById(id : Int) = ServiceRepository.getServiceById(this, id)
 
     fun defineErr(err: String?) {
