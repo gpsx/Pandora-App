@@ -25,36 +25,15 @@
         app:layout_constraintStart_toEndOf="@id/image_service"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/rating_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/defaultMargin"
-        android:textSize="@dimen/cardTitle"
-        app:layout_constraintStart_toEndOf="@id/strip"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Avaliação Boa" />
-
-    <TextView
-        android:id="@+id/circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/smallMargin"
-        android:layout_marginTop="@dimen/defaultMargin"
-        android:textColor="@color/DarkGray"
-        android:textSize="@dimen/textSize"
-        app:layout_constraintStart_toEndOf="@id/rating_title"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="·" />
 
     <ImageView
         android:id="@+id/star"
         android:layout_width="@dimen/LittleStarSize"
         android:layout_height="@dimen/LittleStarSize"
-        android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginLeft="@dimen/defaultMargin"
         android:layout_marginTop="@dimen/defaultMargin"
         android:src="@drawable/ic_star_"
-        app:layout_constraintStart_toEndOf="@id/circle"
+        app:layout_constraintStart_toEndOf="@id/strip"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -78,7 +57,7 @@
         android:textColor="@color/DarkGray"
         android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@+id/strip"
-        app:layout_constraintTop_toBottomOf="@id/rating_title"
+        tools:layout_editor_absoluteY="51dp"
         tools:text="Esta é uma avaliação muito boa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

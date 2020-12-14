@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_service.*
 import x.pandoraapp.R
 import x.pandoraapp.adapters.RatingRecyclerAdapter
 import x.pandoraapp.controllers.ServiceController
-import x.pandoraapp.controllers.SolicitationController
 import x.pandoraapp.data.DataSourceRating
 import x.pandoraapp.utils.CustomListener
 import x.pandoraapp.utils.TopSpacingItemDecorations
@@ -26,6 +24,7 @@ class ServiceActivity : AppCompatActivity() {
 
     private val serviceController by lazy { ServiceController() }
     private var id: Int = 0;
+    private var idPrestador: Int = 0;
     private lateinit var ratingAdapter: RatingRecyclerAdapter
     private lateinit var arrow: ImageView
     private lateinit var button: Button
@@ -48,7 +47,9 @@ class ServiceActivity : AppCompatActivity() {
         }
 
         id = this.intent.getIntExtra("id", 0)
+        idPrestador = this.intent.getIntExtra("idPrestador", 0)
         serviceController.getServiceById(id)
+        serviceController.geRate(idPrestador)
 
         bindObservers()
         initRecyclerView()
@@ -93,6 +94,9 @@ class ServiceActivity : AppCompatActivity() {
             val imageService: ImageView = img_service
             imageService.load(it.image)
             loadingProgressService.visibility = View.GONE
+        }
+        observe(rate) {
+            tv_rating.text = it.toString()
         }
     }
 

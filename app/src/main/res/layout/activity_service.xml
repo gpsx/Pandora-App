@@ -36,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:background="@color/White"
         android:id="@+id/img_service"
         android:layout_width="match_parent"
         android:layout_height="@dimen/serviceImage"
@@ -71,11 +72,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_description" />
 
+    <ImageView
+        android:id="@+id/star_service"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/smallMargin"
+        android:layout_marginTop="@dimen/bigMargin"
+        android:src="@drawable/ic_star_"
+        app:layout_constraintStart_toEndOf="@id/tv_avaliations"
+        app:layout_constraintTop_toBottomOf="@id/view_description" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/Yellow"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toEndOf="@id/star_service"
+        app:layout_constraintTop_toBottomOf="@id/view_description" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_ratings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/defaultMargin"
+        android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_avaliations" />
 

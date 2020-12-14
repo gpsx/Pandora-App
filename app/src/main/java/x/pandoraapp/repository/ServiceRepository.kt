@@ -76,4 +76,18 @@ object ServiceRepository {
         )
     }
 
+    fun getRate(controller: ServiceController, idPrestador: Int) {
+        disposable.add(
+            api.getServiceData()
+                .getRate(idPrestador)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    controller.defineRate(it)
+                }, {
+                    controller.defineErr("Sem avaliação")
+                })
+        )
+    }
+
 }

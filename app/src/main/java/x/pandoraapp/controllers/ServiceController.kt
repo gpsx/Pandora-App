@@ -13,6 +13,8 @@ class ServiceController {
 
     val single: MutableLiveData<Service> = MutableLiveData()
 
+    val rate: MutableLiveData<Double> = MutableLiveData()
+
     fun getInfo() = ServiceRepository.getAllServices(this)
 
     fun getServicesByWord(filtro: String) = ServiceRepository.getServiceByWord(this, filtro)
@@ -28,4 +30,9 @@ class ServiceController {
     fun defineServices(service: List<Service>) = this.data.postValue(service)
 
     fun defineService(service: Service) = this.single.postValue(service)
+
+    fun geRate(idPrestador: Int) = ServiceRepository.getRate(this, idPrestador)
+
+    fun defineRate(rate: Double?) = this.rate.postValue(rate)
+
 }

@@ -1,20 +1,15 @@
 package x.pandoraapp.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import kotlinx.android.synthetic.main.service_card_home.view.*
 import x.pandoraapp.R
 import x.pandoraapp.models.Service
-import x.pandoraapp.views.MainActivity
-import x.pandoraapp.views.ServiceActivity
 
 class HomeRecyclerAdapter(
     private val onItemClicked: (Service) -> Unit
@@ -54,8 +49,6 @@ class HomeRecyclerAdapter(
     ) : RecyclerView.ViewHolder(itemView) {
 
         private val serviceName: TextView = itemView.service_name
-        private val rating: TextView = itemView.rating
-        private val distance: TextView = itemView.distancy
         private val imageService: ImageView = itemView.image_service
 
         init{
@@ -66,8 +59,6 @@ class HomeRecyclerAdapter(
 
         fun bind(serviceHome: Service) {
             serviceName.text = serviceHome.title
-            rating.text = "3,0"
-            distance.text = "300"
             imageService.load(serviceHome.image)
         }
 

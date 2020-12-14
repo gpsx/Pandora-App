@@ -131,6 +131,7 @@ class HomeFragment : Fragment() {
             homeAdapter = HomeRecyclerAdapter { service ->
                 val intent = Intent(context, ServiceActivity::class.java).apply {
                     putExtra("id", service.id)
+                    putExtra("idPrestador", service.providerData.id)
                 }
                 startActivity(intent);
             }

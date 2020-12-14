@@ -41,7 +41,6 @@ class RatingRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class ServiceViewHolder constructor(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
-        private val title: TextView = itemView.rating_title
         private val note: TextView = itemView.rating
         private val avaliation: TextView = itemView.avaliation
         private val image: ImageView = itemView.image_service
@@ -49,7 +48,7 @@ class RatingRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(rating: Rating) {
             note.text = rating.rate.toString()
             avaliation.text = rating.avaliation
-            image.load(R.drawable.ic_logo)
+            image.load(R.drawable.pessoa1)
         }
     }
 }
