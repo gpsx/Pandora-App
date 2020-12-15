@@ -33,4 +33,6 @@
     <string name="filterAprovado">Aprovado</string>
     <string name="filterExecucao">Execução</string>
     <string name="filterFinalizado">Finalizado</string>
+    <string name="sign_out">Sair</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
 </resources>

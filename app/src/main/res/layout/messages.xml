@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/smallMargin">
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/lorem_ipsum"
+        android:textColor="@color/White"
+        android:textSize="16sp"
+        android:padding="@dimen/smallMargin"
+        android:background="@drawable/rounded_corner"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:backgroundTint="@color/Primary"/>
+
+    <TextView
+        android:id="@+id/other"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/lorem_ipsum"
+        android:textSize="16sp"
+        android:padding="@dimen/smallMargin"
+        android:visibility="gone"
+        android:background="@drawable/rounded_corner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
