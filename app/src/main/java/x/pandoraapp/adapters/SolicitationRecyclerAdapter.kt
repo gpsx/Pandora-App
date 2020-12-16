@@ -1,5 +1,6 @@
 package x.pandoraapp.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,17 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import kotlinx.android.synthetic.main.solicitation_card.view.*
 import x.pandoraapp.R
+import x.pandoraapp.models.Service
 import x.pandoraapp.models.Solicitation
 
-class SolicitationRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SolicitationRecyclerAdapter(
+    private val onItemClicked: (Int) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Solicitation> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return SolicitationViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.solicitation_card, parent, false)
-        )
+        val viewHolder =
+            LayoutInflater.from(parent.context).inflate(R.layout.solicitation_card, parent, false)
+        return SolicitationViewHolder(viewHolder) {
+            items[it].id?.let { it1 -> onItemClicked(it1) }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -41,11 +46,18 @@ class SolicitationRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     class SolicitationViewHolder constructor(
-        itemView: View
+        itemView: View,
+        onItemClicked: (Int) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
         private val title: TextView = itemView.solicitation_title
         private val status: TextView = itemView.status
         private val image: ImageView = itemView.image_solicitation
+
+        init {
+            itemView.setOnClickListener {
+                onItemClicked(it.id);
+            }
+        }
 
         fun bind(solicitation: Solicitation) {
             title.text = solicitation.description;
@@ -53,6 +65,7 @@ class SolicitationRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
 
             image.load(solicitation.provider.image)
         }
+
     }
 
 

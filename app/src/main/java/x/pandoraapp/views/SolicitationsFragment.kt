@@ -7,9 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connection_error.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -108,7 +107,7 @@ class SolicitationsFragment : Fragment() {
         alertDialog.show()
         val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 
-        theButton.setOnClickListener{
+        theButton.setOnClickListener {
             solicitationController.getFilteredSolicitation(
                 this.getUserId(), strFilter
             )
@@ -127,10 +126,46 @@ class SolicitationsFragment : Fragment() {
     private fun initRecyclerView() {
         recycler_view_solicitations.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            solicitationAdapter = SolicitationRecyclerAdapter()
+            solicitationAdapter = SolicitationRecyclerAdapter {
+                startAvaliationPopUp(it)
+            }
             adapter = solicitationAdapter
             val topSpacing = TopSpacingItemDecorations(12)
             addItemDecoration(topSpacing)
+        }
+    }
+
+    private fun startAvaliationPopUp(id: Int) {
+        val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.popup_form_solicitation, null)
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setView(view)
+
+        val etAvaliacao = (view.findViewById(R.id.et_descr_avaliation) as EditText)
+        val ratingBar = (view.findViewById(R.id.ratingBar) as RatingBar)
+        var rating: Int = 0;
+
+        ratingBar.setOnRatingBarChangeListener { ratingBar: RatingBar, fl: Float, b: Boolean ->
+            rating = ratingBar.numStars
+        }
+
+        alertDialogBuilder.setCancelable(false)
+            .setPositiveButton(
+                "AVALIAR"
+            ) { dialogInterface: DialogInterface, i: Int ->
+                //onClick
+            }
+            .setNegativeButton(
+                "CANCELAR"
+            ) { dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.cancel()
+            }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+        val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+
+        theButton.setOnClickListener {
+            Toast.makeText(context, "Avaliação enviada ao prestador!", Toast.LENGTH_SHORT).show()
         }
     }
 
