@@ -35,8 +35,7 @@ class ServiceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_service)
         loadingProgressService.visibility = View.VISIBLE
 
-        arrow = findViewById<ImageView>(R.id.left_arrow)
-        arrow.setOnClickListener {
+        left_arrow.setOnClickListener {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
         }

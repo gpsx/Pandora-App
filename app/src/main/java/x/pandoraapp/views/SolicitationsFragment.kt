@@ -8,10 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connection_error.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_solicitations.*
 import x.pandoraapp.R
 import x.pandoraapp.adapters.SolicitationRecyclerAdapter
@@ -127,7 +125,7 @@ class SolicitationsFragment : Fragment() {
         recycler_view_solicitations.apply {
             layoutManager = LinearLayoutManager(requireContext())
             solicitationAdapter = SolicitationRecyclerAdapter {
-                startAvaliationPopUp(it)
+                startAvaliationPopUp()
             }
             adapter = solicitationAdapter
             val topSpacing = TopSpacingItemDecorations(12)
@@ -135,19 +133,11 @@ class SolicitationsFragment : Fragment() {
         }
     }
 
-    private fun startAvaliationPopUp(id: Int) {
+    private fun startAvaliationPopUp() {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.popup_form_solicitation, null)
+        val view = inflater.inflate(R.layout.popup_form_avaliacao, null)
         val alertDialogBuilder = AlertDialog.Builder(context)
         alertDialogBuilder.setView(view)
-
-        val etAvaliacao = (view.findViewById(R.id.et_descr_avaliation) as EditText)
-        val ratingBar = (view.findViewById(R.id.ratingBar) as RatingBar)
-        var rating: Int = 0;
-
-        ratingBar.setOnRatingBarChangeListener { ratingBar: RatingBar, fl: Float, b: Boolean ->
-            rating = ratingBar.numStars
-        }
 
         alertDialogBuilder.setCancelable(false)
             .setPositiveButton(
@@ -165,6 +155,7 @@ class SolicitationsFragment : Fragment() {
         val theButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE)
 
         theButton.setOnClickListener {
+            alertDialog.dismiss()
             Toast.makeText(context, "Avaliação enviada ao prestador!", Toast.LENGTH_SHORT).show()
         }
     }

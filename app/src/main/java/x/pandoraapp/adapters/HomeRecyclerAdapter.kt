@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
+import coil.transform.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.service_card_home.view.*
 import x.pandoraapp.R
 import x.pandoraapp.models.Service
@@ -59,7 +60,9 @@ class HomeRecyclerAdapter(
 
         fun bind(serviceHome: Service) {
             serviceName.text = serviceHome.title
-            imageService.load(serviceHome.image)
+            imageService.load(serviceHome.image) {
+                transformations(RoundedCornersTransformation(50F))
+            }
         }
 
     }

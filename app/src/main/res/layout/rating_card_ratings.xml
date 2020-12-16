@@ -11,7 +11,7 @@
         android:id="@+id/image_service"
         android:layout_width="@dimen/imageSize"
         android:layout_height= "@dimen/imageSize"
-        android:src="@drawable/ic_house_outline"
+        android:src="@drawable/ic_group"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,10 +51,13 @@
 
     <TextView
         android:id="@+id/avaliation"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/defaultMargin"
-        android:textColor="@color/DarkGray"
+        android:layout_marginStart="@dimen/defaultMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/star"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="@dimen/textSize"
         app:layout_constraintStart_toEndOf="@+id/strip"
         tools:layout_editor_absoluteY="51dp"

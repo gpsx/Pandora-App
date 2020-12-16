@@ -18,8 +18,8 @@ class DataSourceRating {
             list.add(
                 Rating(
                     3,
-                    2.toBigDecimal(),
-                    "Deixou a desejar, mas foi no horário marcado."
+                    5.toBigDecimal(),
+                    "MARAVILHA!"
                 )
             )
 

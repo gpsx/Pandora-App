@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_root_avaliacao"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp">
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:visibility="visible"
+        android:id="@+id/rtb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
-        android:stepSize="1.0"
-        android:rating="2.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:progressTint="#FFC107"
+        android:secondaryProgressTint="#FFEB3B"
+        android:stepSize="0.1"/>
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/rtb"
         android:id="@+id/et_descr_avaliation"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Faça sua avaliação"
@@ -24,5 +33,4 @@
         <requestFocus />
     </EditText>
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

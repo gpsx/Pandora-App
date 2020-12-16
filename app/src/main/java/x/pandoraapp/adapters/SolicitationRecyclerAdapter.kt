@@ -1,6 +1,5 @@
 package x.pandoraapp.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import kotlinx.android.synthetic.main.solicitation_card.view.*
 import x.pandoraapp.R
-import x.pandoraapp.models.Service
 import x.pandoraapp.models.Solicitation
 
 class SolicitationRecyclerAdapter(
-    private val onItemClicked: (Int) -> Unit
+    private val onItemClicked: () -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Solicitation> = ArrayList()
@@ -23,7 +21,7 @@ class SolicitationRecyclerAdapter(
         val viewHolder =
             LayoutInflater.from(parent.context).inflate(R.layout.solicitation_card, parent, false)
         return SolicitationViewHolder(viewHolder) {
-            items[it].id?.let { it1 -> onItemClicked(it1) }
+            onItemClicked()
         }
     }
 

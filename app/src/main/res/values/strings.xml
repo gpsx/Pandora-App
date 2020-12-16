@@ -35,4 +35,6 @@
     <string name="filterFinalizado">Finalizado</string>
     <string name="sign_out">Sair</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy</string>
+    <string name="telefone">Telefone:</string>
+    <string name="email">Email:</string>
 </resources>

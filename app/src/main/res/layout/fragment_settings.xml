@@ -29,42 +29,57 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/background_profile"
+        app:layout_constraintEnd_toEndOf="@id/background_profile"
         android:layout_marginTop="@dimen/defaultMargin"
-        android:textAlignment="center"
         android:textSize="@dimen/cardTitle"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:text="Nome do moço" />
 
     <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="match_parent"
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/defaultMargin"
+        app:layout_constraintStart_toStartOf="@id/background_profile"
         android:layout_marginTop="@dimen/defaultMargin"
-        android:paddingLeft="@dimen/bigMargin"
-        android:textAlignment="textStart"
-        android:textSize="@dimen/textSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/defaultMargin"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:text="Email: email@email.com" />
+        android:textSize="16sp"
+        android:text="@string/email" />
 
     <TextView
-        android:id="@+id/tv_telefone"
-        android:layout_width="match_parent"
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/defaultMargin"
-        android:paddingLeft="@dimen/bigMargin"
-        android:textAlignment="textStart"
-        android:textSize="@dimen/textSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email"
-        tools:text="Telefone: (11)98712-5120" />
+        app:layout_constraintStart_toEndOf="@id/email"
+        android:layout_marginTop="@dimen/defaultMargin"
+        android:layout_marginStart="@dimen/smallMargin"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/foneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/background_profile"
+        android:layout_marginTop="@dimen/smallMargin"
+        android:layout_marginStart="@dimen/defaultMargin"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:textSize="16sp"
+        android:text="@string/telefone" />
+
+    <TextView
+        android:id="@+id/foneNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/foneNumber"
+        android:layout_marginTop="@dimen/smallMargin"
+        android:layout_marginStart="@dimen/smallMargin"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:textSize="16sp" />
 
     <View
         android:id="@+id/view_profile2"

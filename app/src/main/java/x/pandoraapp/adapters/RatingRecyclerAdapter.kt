@@ -48,7 +48,6 @@ class RatingRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(rating: Rating) {
             note.text = rating.rate.toString()
             avaliation.text = rating.avaliation
-            image.load(R.drawable.pessoa1)
         }
     }
 }
